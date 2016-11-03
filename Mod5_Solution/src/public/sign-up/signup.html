@@ -1,0 +1,82 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign Up</h2>
+  <div class="text-center">
+    Enter your informations for sign up on the restaurant preferences.
+
+    <p></p>
+    <form name="formPref" novalidate>
+      <p>
+        <span class="field-label">First Name:</span>
+        <input type="text" name="firstname"
+        ng-model="signUpCtrl.firstname"
+        required
+        min-length="4"
+        ng-maxlength="15" class="input-text">
+        <span ng-if="formPref.firstname.$error.required && formPref.firstname.$touched">
+          First name is required!
+        </span>
+        <span ng-if="(formPref.firstname.$error.minlength || formPref.firstname.$error.required) && formPref.firstname.$touched">
+          First name must be at least 4 character long!
+        </span>
+        <span ng-if="formPref.firstname.$error.manlength && formPref.firstname.$touched">
+          First name must not be long than 15 character!
+        </span>
+      </p>
+      <p>
+        <span class="field-label">Last Name:</span>
+        <input type="text" name="lastname"
+        ng-model="signUpCtrl.lastname"
+        required
+        min-length="3" class="input-text">
+        <span ng-if="formPref.lastname.$error.required && formPref.lastname.$touched">
+          Last name is required!
+        </span>
+        <span ng-if="(formPref.lastname.$error.minlength || formPref.lastname.$error.required) && formPref.lastname.$touched">
+          Last name must be at least 4 character long!
+        </span>
+        <span ng-if="formPref.lastname.$error.manlength && formPref.lastname.$touched">
+          Last name must not be long than 15 character!
+        </span>
+      </p>
+
+      <p>
+        <span class="field-label">Email Address:</span>
+        <input type="email" name="emailaddress" placeholder="Email"
+        ng-model="signUpCtrl.emailaddress"
+        required class="input-text">
+        <span ng-if="regForm.emailaddress.$invalid && regForm.emailaddress.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+      </p>
+      <p>
+        <span class="field-label">Phone Number:</span>
+        <input type="text" name="phonenumber" placeholder="Phone ###-###-####"
+        ng-model="signUpCtrl.phonenumber"
+        pattern="(\d{3})-(\d{3})-(\d{4})" class="input-text">
+        <span ng-if=""formPref.phonenumber.$invalid && formPref.phonenumber.$touched"">
+          Phone must be in the format ###-###-####!
+        </span>
+      </p>
+
+      <p>
+        <span class="field-label">Prefered dish on menu:</span>
+        <input type="text"  name="itemmenu"
+        ng-model="signUpCtrl.itemmenu"
+        ng-model-options="{ updateOn: 'blur' }"
+        ng-blur="signUpCtrl.onBlur($event)";
+        ng-focus="signUpCtrl.onFocus($event)";
+        ng-keyup="signUpCtrl.cancel($event)"
+        required
+        min-length="2" class="input-text">
+      </p>
+      <button
+      ng-disabled="formPref.$invalid"
+      ng-click="signUpCtrl.savePreference();">
+      Submit
+    </button>
+
+  </form>
+  <p><span class="msg-Label">  {{signUpCtrl.msg}} </span></p>
+</div>
+
+</div>

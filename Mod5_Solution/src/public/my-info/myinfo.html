@@ -1,0 +1,44 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">My Info</h2>
+  <div class="text-center" ng-show={{myInfoCtrl.msg}}>
+    <p></p>
+    <p>
+      <span class="field-text">First Name: {{myInfoCtrl.firstname}}</span>
+    </p>
+    <p>
+      <span class="field-text">Last Name: {{myInfoCtrl.lastname}}</span>
+    </p>
+    <p>
+      <span class="field-text">Email Address: {{myInfoCtrl.emailaddress}}</span>
+    </p>
+    <p>
+      <span class="field-text">Phone Number: {{myInfoCtrl.phonenumber}}</span>
+    </p>
+    <div class="dish-pref text-center " >
+      <p>
+        <span class="field-text">Prefered dish on menu:</span>
+        </P
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="menu-item-photo">
+                <div>{{myInfoCtrl.menuItem.short_name}}</div>
+                <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.menuItem.short_name}}.jpg" alt="{{myInfoCtrl.menuItem.name}}">
+              </div>
+              <div class="menu-item-price">{{myInfoCtrl.menuItem.price_small | currency}}<span> {{myInfoCtrl.menuItem.small_portion_name}}</span> {{myInfoCtrl.menuItem.price_large | currency}} <span>{{myInfoCtrl.menuItem.large_portion_name}}</span></div>
+            </div>
+            <div class="menu-item-description col-sm-7">
+              <h3 class="menu-item-title">{{myInfoCtrl.menuItem.name}}</h3>
+              <p class="menu-item-details">{{myInfoCtrl.menuItem.description}}</p>
+            </div>
+          </div>
+          <hr class="visible-xs">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" ng-hide={{myInfoCtrl.msg}}>
+      <h4 class="menu-item-title">Not Signed Up Yet.   <a ui-sref="public.signup">Sign up Now!</a></h4>
+    </div>
+
+  </div>
