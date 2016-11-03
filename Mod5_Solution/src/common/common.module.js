@@ -2,7 +2,7 @@
 "use strict";
 
 angular.module('common', ['ngCookies'])
-.constant('ApiPath', 'http://rpiacenti-coursera-c5.herokuapp.com')
+.constant('ApiPath', 'https://rpiacenti-coursera-c5.herokuapp.com')
 .config(config);
 
 config.$inject = ['$httpProvider'];
